@@ -1,4 +1,4 @@
-const loadSiteByDeviceType = async () => {
+const loadTemplate = async () => {
   const isDeviceMobile = isDeviceTypeMobile();
   
   try {
@@ -18,6 +18,11 @@ const loadSiteByDeviceType = async () => {
   }
 };
 
-loadSiteByDeviceType()
-  .then()
-  .catch((err) => console.log(err));
+loadTemplate()
+  .then(() => {
+    // Display all tasks only after the template has loaded
+    displayAllTasksInDOM()
+    .then()
+    .catch(err => console.log(err))
+  })
+  .catch(err => console.log(err))
