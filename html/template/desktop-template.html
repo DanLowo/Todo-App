@@ -15,15 +15,15 @@
 
           <div id="nav-items">
             <ul>
-              <li>
+              <li onclick="handleNavigationClick(this)" class="active">
                 <i class="fal fa-globe-africa"></i>
                 ALL
               </li>
-              <li>
+              <li onclick="handleNavigationClick(this)">
                 <i class="fal fa-hourglass-half"></i>
                 PENDING
               </li>
-              <li>
+              <li onclick="handleNavigationClick(this)">
                 <i class="fal fa-badge-check"></i>
                 COMPLETED
               </li>
@@ -39,7 +39,7 @@
           <input id="search-field" type="text" placeholder="Search Tasks..." />
         </form>
 
-        <h1 id="section-title">All Tasks</h1>
+        <h1 id="section-title">ALL</h1>
 
         <div id="tasks-list"></div>
       </main>
