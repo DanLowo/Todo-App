@@ -30,11 +30,8 @@ const allTasks = [
 ];
 
 // function takes in { title, subTitle, createdDate }
-const createTaskElement = async (task) => {
+const createTaskElement = async (taskCardElement, task) => {
   try {
-    const components = await getHTMLFromURL(COMPONENTS_URL);
-    const taskCardElement = components.querySelector(".task-card");
-
     const newTaskCardElement = taskCardElement.cloneNode(true);
     newTaskCardElement.querySelector("h3").textContent = task.title;
 
@@ -51,9 +48,11 @@ const createTaskElement = async (task) => {
 const displayAllTasksInDOM = async () => {
   try {
     const tasksListDiv = document.querySelector("#tasks-list");
+    const components = await getHTMLFromURL(COMPONENTS_URL);
+    const taskCardElement = components.querySelector(".task-card");
 
     for (task of allTasks) {
-      const newTaskElement = await createTaskElement(task)
+      const newTaskElement = await createTaskElement(taskCardElement, task)
 
       if (!task.stared) {
         const starElement = newTaskElement.querySelector("i");
