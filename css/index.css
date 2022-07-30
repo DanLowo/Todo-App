@@ -1,0 +1,15 @@
+:root {
+  --body-background: white;
+  --box-shadow: 1px 2px 3px rgb(165, 162, 162);
+  --nav-list-background: rgba(214, 212, 212, 0.493);
+}
+
+body {
+  font-family: Ubuntu;
+  background-color: var(--body-background);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
