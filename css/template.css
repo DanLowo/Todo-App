@@ -42,7 +42,7 @@
 }
 
 #desktop-template #main {
-  gap: 2.5rem;
+  gap: 2rem;
   display: flex;
   padding: 1.5rem 4rem;
   flex-direction: column;
@@ -69,6 +69,13 @@
 #desktop-template #main #search-form input:focus {
   outline: none;
 }
+
+#desktop-template #main #tasks-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
 
 /* Mobile Template Styles */
 
@@ -147,4 +154,11 @@
 #mobile-template #section-title {
   font-size: 1.3rem;
   margin-top: 2rem;
+}
+
+#mobile-template #tasks-list {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
 }

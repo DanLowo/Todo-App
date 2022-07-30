@@ -1,5 +1,8 @@
 :root {
   --body-background: white;
+  --light-black: rgb(27, 27, 27);
+  --light-gray: rgb(44, 43, 43);
+  --stared-task: gold;
   --box-shadow: 1px 1px 3px rgb(165, 162, 162);
   --nav-list-background: rgba(214, 212, 212, 0.493);
   --nav-list-active-background: rgba(230, 76, 76, 0.973);
