@@ -55,8 +55,8 @@ const displayAllTasksInDOM = async () => {
       const newTaskElement = await createTaskElement(taskCardElement, task)
 
       if (!task.stared) {
-        const starElement = newTaskElement.querySelector("i");
-        newTaskElement.firstElementChild.removeChild(starElement);
+        const starIconElement = newTaskElement.querySelector("i");
+        newTaskElement.firstElementChild.removeChild(starIconElement);
       }
 
       tasksListDiv.insertAdjacentElement("afterbegin", newTaskElement);
