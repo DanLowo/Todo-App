@@ -1,0 +1,66 @@
+/* Desktop Template Styles */
+
+#desktop-template {
+  width: 100%;
+  display: flex;
+}
+
+#desktop-template #side-bar {
+  width: 18vw;
+  padding: 1.5rem;
+  height: calc(100vh - 3rem);
+  box-shadow: var(--box-shadow);
+}
+
+#desktop-template #side-bar div {
+  margin-top: 2rem;
+}
+
+#desktop-template #side-bar ul {
+  gap: 1.5rem;
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+}
+
+#desktop-template #side-bar li {
+  gap: 0.8rem;
+  display: flex;
+  cursor: pointer;
+  font-weight: 800;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  background-color: var(--nav-list-background);
+}
+
+#desktop-template #main {
+  gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 4rem;
+  width: calc(100vw - 3rem);
+}
+
+#desktop-template #main #search-form {
+  position: relative;
+  gap: .5rem;
+  display: flex;
+  align-items: center;
+}
+
+#desktop-template #main #search-form i, #desktop-template #main #search-form input::placeholder {
+  color: gray;
+  font-size: .9rem;
+}
+
+#desktop-template #main #search-form input {
+  border: none;
+}
+
+#desktop-template #main #search-form input:focus {
+  outline: none;
+}
