@@ -26,7 +26,6 @@
 #desktop-template #side-bar li {
   gap: 0.8rem;
   display: flex;
-  cursor: pointer;
   font-weight: 800;
   align-items: center;
   padding: 1.2rem 1rem;
@@ -35,6 +34,11 @@
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   background-color: var(--nav-list-background);
+}
+
+#desktop-template #side-bar li.active {
+  color: white;
+  background-color: var(--nav-list-active-background);
 }
 
 #desktop-template #main {
@@ -111,6 +115,11 @@
   border-radius: 0.8rem;
   padding: 0.65rem 0.9rem;
   background-color: var(--nav-list-background);
+}
+
+#mobile-template #main #nav-items li.active {
+  color: white;
+  background-color: var(--nav-list-active-background);
 }
 
 #mobile-template #main #search-form {
