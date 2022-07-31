@@ -80,12 +80,15 @@
 /* Mobile Template Styles */
 
 #mobile-template #default-nav {
+  position: fixed;
   gap: 0.7rem;
   display: flex;
   padding: 1rem;
+  z-index: 99999;
   align-items: center;
   width: calc(100vw - 2rem);
   box-shadow: var(--box-shadow);
+  background-color: white;
 }
 
 #mobile-template #default-nav i {
@@ -105,6 +108,7 @@
 
 #mobile-template #main {
   padding: 1.5rem 0.8rem;
+  padding-top: 5rem;
 }
 
 #mobile-template #main #nav-items {
@@ -170,4 +174,19 @@
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+}
+
+#mobile-template #call-to-action {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+#mobile-template #call-to-action i {
+  color: white;
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 1rem 1.2rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--nav-list-active-background);
 }
