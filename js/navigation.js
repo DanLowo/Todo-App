@@ -9,12 +9,12 @@ const changeSectionTitle = (title) => {
    item is clicked, it does not remove "active" because the watcher array is initially empty when the page loads
 */
 const removeActiveFromFirstElement = (siblingElement) => {
-  const firstElement = siblingElement.parentElement.firstElementChild
-  firstElement.classList.remove("active")
-}
+  const firstElement = siblingElement.parentElement.firstElementChild;
+  firstElement.classList.remove("active");
+};
 
 const handleNavigationClick = (element) => {
-  removeActiveFromFirstElement(element)
+  removeActiveFromFirstElement(element);
   const navTitle = element.lastChild.textContent.trim();
 
   /* if an item is already selected (i.e watcher.length > 0): remove "active" class from the previously
@@ -33,4 +33,6 @@ const handleNavigationClick = (element) => {
   }
 
   changeSectionTitle(navTitle);
+  const statusTasks = filterTaskByStatus(allTasksArr, navTitle);
+  displayTasksInDOM(statusTasks);
 };
