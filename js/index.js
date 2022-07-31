@@ -1,7 +1,3 @@
-const getAllTasks = () => {
-  return JSON.parse(localStorage.getItem("allTasks"));
-};
-
 loadTemplate()
   .then(() => {
     // Display all tasks only after the template has loaded

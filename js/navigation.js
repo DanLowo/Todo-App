@@ -33,6 +33,6 @@ const handleNavigationClick = (element) => {
   }
 
   changeSectionTitle(navTitle);
-  const statusTasks = filterTaskByStatus(allTasksArr, navTitle);
+  const statusTasks = filterTaskByStatus(getAllTasks(), navTitle);
   displayTasksInDOM(statusTasks);
 };

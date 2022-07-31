@@ -36,6 +36,10 @@ const isDeviceTypeMobile = () => {
   return false;
 };
 
+const getAllTasks = () => {
+  return JSON.parse(localStorage.getItem("allTasks"));
+};
+
 const generateRandomColor = () => {
   const COLORS = [
     "rgba(203,210,239,255)",
