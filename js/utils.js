@@ -42,17 +42,17 @@ const getAllTasks = () => {
 
 const generateRandomColor = () => {
   const COLORS = [
-    "rgba(203,210,239,255)",
-    "rgba(207,224,208,255)",
-    "rgba(237,206,204,255)",
+    "rgb(169 177 207)",
+    "rgba(207, 125, 108, 0.856)",
+    "rgb(91 9 96 / 38%)",
     "rgb(143, 37, 12, 0.514)",
-    "rgb(16, 0, 7, 0.514)",
-    "rgb(231, 226, 71, 0.514)",
+    "rgb(16, 0, 7, 0.414)",
     "rgb(204, 51, 99, 0.514)",
     "rgb(33, 104, 105, 0.514)",
     "rgb(141, 106, 159, 0.514)",
     "rgba(28, 49, 68, 0.466)",
   ];
+  
   const random = Math.round(Math.random() * 10);
 
   return COLORS[random];
