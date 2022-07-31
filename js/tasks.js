@@ -1,40 +1,12 @@
-const allTasks = [
-  {
-    title: "Web Project",
-    subTitle: "Tasks for my small project",
-    status: "COMPLETED",
-    stared: true,
-    createdDate: "march 11, 2022",
-  },
-  {
-    title: "Groceries",
-    subTitle: "Get all things food :)",
-    status: "PENDING",
-    stared: false,
-    createdDate: "June 25, 2022",
-  },
-  {
-    title: "Self Development",
-    subTitle: "Become competent",
-    status: "PENDING",
-    stared: true,
-    createdDate: "June 29, 2022",
-  },
-  {
-    title: "Books To Read",
-    subTitle: "No excuses, Phy Money",
-    status: "COMPLETED",
-    stared: true,
-    createdDate: "July 5, 2022",
-  },
-];
-
 // function takes in { title, subTitle, createdDate }
 const createTaskElement = async (taskCardElement, task) => {
   try {
     const newTaskCardElement = taskCardElement.cloneNode(true);
     newTaskCardElement.querySelector("h3").textContent = task.title;
 
+    const cardColor = generateRandomColor()
+    newTaskCardElement.style.backgroundColor = cardColor
+    
     const lastChild = newTaskCardElement.lastElementChild;
     lastChild.textContent = task.createdDate;
     lastChild.previousElementSibling.textContent = task.subTitle;
@@ -45,14 +17,28 @@ const createTaskElement = async (taskCardElement, task) => {
   }
 };
 
-const displayAllTasksInDOM = async () => {
+const displayTasksInDOM = async (allTasks) => {
   try {
     const tasksListDiv = document.querySelector("#tasks-list");
+    tasksListDiv.innerHTML = ""; // clear allItems
     const components = await getHTMLFromURL(COMPONENTS_URL);
     const taskCardElement = components.querySelector(".task-card");
 
-    for (task of allTasks) {
-      const newTaskElement = await createTaskElement(taskCardElement, task)
+    // Add tasks that are not stared to the element first
+    for (task of filterNonStaredTasks(allTasks)) {
+      const newTaskElement = await createTaskElement(taskCardElement, task);
+
+      if (!task.stared) {
+        const starIconElement = newTaskElement.querySelector("i");
+        newTaskElement.firstElementChild.removeChild(starIconElement);
+      }
+
+      tasksListDiv.insertAdjacentElement("afterbegin", newTaskElement);
+    }
+
+    // Add stared tasks to the element, so that it will be at the top of the list
+    for (task of filterStaredTasks(allTasks)) {
+      const newTaskElement = await createTaskElement(taskCardElement, task);
 
       if (!task.stared) {
         const starIconElement = newTaskElement.querySelector("i");
