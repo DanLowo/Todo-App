@@ -107,8 +107,17 @@
   padding: 1.5rem 0.8rem;
 }
 
+#mobile-template #main #nav-items {
+  overflow-x: scroll;
+}
+
+#mobile-template #main #nav-items::-webkit-scrollbar {
+  display: none;
+}
+
 #mobile-template #main #nav-items ul {
   display: flex;
+  gap: .6rem;
   list-style-type: none;
   justify-content: space-between;
 }
