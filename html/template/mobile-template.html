@@ -44,11 +44,22 @@
         <h3 id="section-title">ALL</h3>
 
         <div id="tasks-list"></div>
+
+        <!-- Create List Dialog -->
+        <dialog id="dialog-box" class="closed">
+          <h2 class="title">Create List</h2>
+
+          <form id="create-list-dialog-form" onsubmit="createList(event)">
+            <input type="text" placeholder="List Title" id="list-title" />
+            <input type="text" placeholder="List Subtitle" id="list-subtitle" />
+            <button type="submit">Create List</button>
+          </form>
+        </dialog>
       </main>
 
       <footer>
-        <div id="call-to-action">
-          <i class="fal fa-plus"></i>
+        <div id="fab">
+          <i class="fal fa-plus" onclick="openCreateListDialog()"></i>
         </div>
       </footer>
     </section>
