@@ -71,24 +71,24 @@
 }
 
 #desktop-template #main #tasks-list {
+  gap: 1.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
 
 /* Mobile Template Styles */
 
 #mobile-template #default-nav {
-  position: fixed;
+  z-index: 9;
   gap: 0.7rem;
   display: flex;
   padding: 1rem;
-  z-index: 99999;
+  position: fixed;
   align-items: center;
+  background-color: white;
   width: calc(100vw - 2rem);
   box-shadow: var(--box-shadow);
-  background-color: white;
 }
 
 #mobile-template #default-nav i {
@@ -107,8 +107,8 @@
 }
 
 #mobile-template #main {
-  padding: 1.5rem 0.8rem;
   padding-top: 5rem;
+  padding: 1.5rem 0.8rem;
 }
 
 #mobile-template #main #nav-items {
@@ -120,8 +120,8 @@
 }
 
 #mobile-template #main #nav-items ul {
-  display: flex;
   gap: .6rem;
+  display: flex;
   list-style-type: none;
   justify-content: space-between;
 }
@@ -129,8 +129,8 @@
 #mobile-template #main #nav-items li {
   gap: 0.8rem;
   display: flex;
-  font-size: 0.9rem;
   font-weight: 800;
+  font-size: 0.9rem;
   align-items: center;
   border-radius: 0.8rem;
   padding: 0.65rem 0.9rem;
@@ -165,21 +165,22 @@
 }
 
 #mobile-template #section-title {
-  font-size: 1.3rem;
   margin-top: 2rem;
+  font-size: 1.3rem;
 }
 
 #mobile-template #tasks-list {
   gap: 1.5rem;
   display: flex;
-  flex-direction: column;
   margin-top: 1rem;
+  flex-direction: column;
 }
 
 #mobile-template #fab {
-  position: fixed;
-  bottom: 1rem;
   right: 1rem;
+  bottom: 1rem;
+  z-index: 999;
+  position: fixed;
 }
 
 #mobile-template #fab i {
@@ -187,7 +188,6 @@
   font-size: 2rem;
   border-radius: 50%;
   padding: 1rem 1.2rem;
-  box-shadow: var(--box-shadow);
   background-color: var(--nav-list-active-background);
 }
 

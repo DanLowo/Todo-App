@@ -1,8 +1,8 @@
 :root {
-  --body-background: white;
-  --light-black: rgb(27, 27, 27);
-  --light-gray: rgb(44, 43, 43);
   --stared-task: gold;
+  --body-background: white;
+  --light-gray: rgb(44, 43, 43);
+  --light-black: rgb(27, 27, 27);
   --box-shadow: 1px 1px 3px rgb(165, 162, 162);
   --nav-list-background: rgba(214, 212, 212, 0.493);
   --nav-list-active-background: rgba(230, 76, 76, 0.973);
@@ -14,10 +14,24 @@ body {
 }
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 input:focus {
   outline: none;
+}
+
+#darken-background {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.829);
+}
+
+#darken-background.closed {
+  display: none;
 }
