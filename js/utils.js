@@ -40,6 +40,10 @@ const getAllTasks = () => {
   return JSON.parse(localStorage.getItem("allTasks")) || [];
 };
 
+const saveTasks = (allTasks) => {
+  localStorage.setItem("allTasks", JSON.stringify(allTasks))
+}
+
 const generateRandomColor = () => {
   const COLORS = [
     "rgb(169 177 207)",
