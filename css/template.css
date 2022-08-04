@@ -107,8 +107,8 @@
 }
 
 #mobile-template #main {
-  padding-top: 5rem;
   padding: 1.5rem 0.8rem;
+  padding-top: 5rem;
 }
 
 #mobile-template #main #nav-items {
