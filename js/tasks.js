@@ -4,9 +4,8 @@ const createTaskElement = async (taskCardElement, task) => {
     const newTaskCardElement = taskCardElement.cloneNode(true);
     newTaskCardElement.querySelector("h3").textContent = task.title;
 
-    const cardColor = generateRandomColor()
-    newTaskCardElement.style.backgroundColor = cardColor
-    
+    newTaskCardElement.style.backgroundColor = task.cardColor;
+
     const lastChild = newTaskCardElement.lastElementChild;
     lastChild.textContent = task.createdDate;
     lastChild.previousElementSibling.textContent = task.subTitle;
@@ -27,12 +26,6 @@ const displayTasksInDOM = async (allTasks) => {
     // Add tasks that are not stared to the element first
     for (task of filterNonStaredTasks(allTasks)) {
       const newTaskElement = await createTaskElement(taskCardElement, task);
-
-      if (!task.stared) {
-        const starIconElement = newTaskElement.querySelector("i");
-        newTaskElement.firstElementChild.removeChild(starIconElement);
-      }
-
       tasksListDiv.insertAdjacentElement("afterbegin", newTaskElement);
     }
 
@@ -40,14 +33,19 @@ const displayTasksInDOM = async (allTasks) => {
     for (task of filterStaredTasks(allTasks)) {
       const newTaskElement = await createTaskElement(taskCardElement, task);
 
-      if (!task.stared) {
-        const starIconElement = newTaskElement.querySelector("i");
-        newTaskElement.firstElementChild.removeChild(starIconElement);
-      }
+      const header = newTaskElement.querySelector("header");
+      header.insertAdjacentHTML("beforeend", `<i class="fas fa-star"></i>`);
 
       tasksListDiv.insertAdjacentElement("afterbegin", newTaskElement);
     }
   } catch (err) {
     console.log(err);
   }
+};
+
+const addNewListToDom = (listElement) => {
+  const numberOfStaredTasks = filterStaredTasks(getAllTasks()).length - 1
+
+  const lastStaredElement = document.querySelectorAll(".task-card")[numberOfStaredTasks];
+  lastStaredElement.insertAdjacentElement("afterend", listElement)
 };
