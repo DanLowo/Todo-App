@@ -43,9 +43,15 @@ const displayTasksInDOM = async (allTasks) => {
   }
 };
 
-const addNewListToDom = (listElement) => {
-  const numberOfStaredTasks = filterStaredTasks(getAllTasks()).length - 1
+const addNewListToDOM = (listElement) => {
+  const numberOfStaredTasks = filterStaredTasks(getAllTasks()).length
 
-  const lastStaredElement = document.querySelectorAll(".task-card")[numberOfStaredTasks];
+  if(numberOfStaredTasks === 0) {
+    const tasksListDiv = document.querySelector("#tasks-list");
+    tasksListDiv.insertAdjacentElement("afterbegin", listElement);
+    return;
+  }
+
+  const lastStaredElement = document.querySelectorAll(".task-card")[numberOfStaredTasks - 1];
   lastStaredElement.insertAdjacentElement("afterend", listElement)
 };

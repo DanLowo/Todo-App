@@ -17,7 +17,7 @@ const createList = async (form, e) => {
     const taskCardElement = components.querySelector(".task-card");
 
     const newList = await createTaskElement(taskCardElement, listDetails);
-    addNewListToDom(newList);
+    addNewListToDOM(newList);
 
     const allLists = [...getAllTasks()]
     allLists.push(listDetails)
