@@ -49,7 +49,7 @@
         <dialog id="dialog-box" class="closed">
           <h2 class="title">Create List</h2>
 
-          <form id="create-list-dialog-form" onsubmit="createList(event)">
+          <form id="create-list-dialog-form" onsubmit="createList(this, event)">
             <input type="text" placeholder="List Title" id="list-title" />
             <textarea placeholder="List Subtitle" id="list-subtitle"></textarea>
             <button type="submit">Create List</button>
@@ -59,7 +59,7 @@
 
       <footer>
         <div id="fab">
-          <i class="fal fa-plus" onclick="openCreateListDialog()"></i>
+          <i class="fal fa-plus" onclick="setCreateListDialog()"></i>
         </div>
       </footer>
     </section>
