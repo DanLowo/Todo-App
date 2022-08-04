@@ -46,7 +46,24 @@
         <h1 id="section-title">ALL</h1>
 
         <div id="tasks-list"></div>
+
+        <!-- Create List Dialog -->
+        <dialog id="dialog-box" class="closed">
+          <h2 class="title">Create List</h2>
+
+          <form id="create-list-dialog-form" onsubmit="createList(this, event)">
+            <input type="text" placeholder="List Title" id="list-title" />
+            <textarea placeholder="List Subtitle" id="list-subtitle"></textarea>
+            <button type="submit">Create List</button>
+          </form>
+        </dialog>
       </main>
+
+      <footer>
+        <div id="fab">
+          <i class="fal fa-plus" onclick="setCreateListDialog()"></i>
+        </div>
+      </footer>
     </section>
   </body>
 </html>

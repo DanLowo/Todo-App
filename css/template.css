@@ -76,6 +76,25 @@
   flex-wrap: wrap;
 }
 
+#desktop-template #fab {
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 999;
+  position: fixed;
+}
+
+#desktop-template #fab i {
+  color: white;
+  font-size: 1.7rem;
+  border-radius: 50%;
+  padding: .8rem 1rem;
+  background-color: var(--nav-list-active-background);
+}
+
+#desktop-template #fab i.opened {
+  padding: .8rem 1.1rem;
+}
+
 
 /* Mobile Template Styles */
 
