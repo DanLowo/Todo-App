@@ -36,6 +36,12 @@ const isDeviceTypeMobile = () => {
   return false;
 };
 
+const generateUniqueKey = () => {
+  const random1 = (Math.random() * 100) * (Math.random() * 100) * (Math.random() * 100)
+  const random2 = (Math.random() * 100) * (Math.random() * 100) * (Math.random() * 100)
+  return Math.floor(random1 * random2);
+}
+
 const getAllTasks = () => {
   return JSON.parse(localStorage.getItem("allTasks")) || [];
 };
