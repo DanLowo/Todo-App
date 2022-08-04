@@ -151,17 +151,15 @@
 }
 
 #mobile-template #main #search-form i,
-#mobile-template #main #search-form input::placeholder {
+#mobile-template #main #search-form input::placeholder,
+#mobile-template #main #search-form textarea::placeholder {
   color: gray;
   font-size: 0.9rem;
 }
 
-#mobile-template #main #search-form input {
+#mobile-template #main #search-form input, 
+#mobile-template #main #search-form textarea {
   border: none;
-}
-
-#mobile-template #main #search-form input:focus {
-  outline: none;
 }
 
 #mobile-template #section-title {

@@ -9,16 +9,16 @@
 }
 
 body {
-  font-family: Ubuntu;
   background-color: var(--body-background);
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: Ubuntu;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
 }
 
