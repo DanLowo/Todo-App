@@ -52,7 +52,7 @@ const generateRandomColor = () => {
     "rgb(141, 106, 159, 0.514)",
     "rgba(28, 49, 68, 0.466)",
   ];
-  
+
   const random = Math.round(Math.random() * 10);
 
   return COLORS[random];
@@ -63,8 +63,8 @@ const filterTaskByStatus = (allTasks, type) => {
     return allTasks;
   }
 
-  if(type === tasksStatus.deleted) {
-    return []
+  if (type === tasksStatus.deleted) {
+    return [];
   }
 
   return (filterdTasks = allTasks.filter((task) => task?.status === type));
