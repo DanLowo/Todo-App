@@ -15,46 +15,58 @@
 
       <!-- Mobile Main Content -->
       <main id="main">
-        <div id="nav-items">
-          <ul>
-            <li onclick="handleNavigationClick(this)" class="active">
-              <i class="fal fa-globe-africa"></i>
-              ALL
-            </li>
-            <li onclick="handleNavigationClick(this)">
-              <i class="fal fa-hourglass-half"></i>
-              PENDING
-            </li>
-            <li onclick="handleNavigationClick(this)">
-              <i class="fal fa-badge-check"></i>
-              COMPLETED
-            </li>
-            <li onclick="handleNavigationClick(this)">
-              <i class="fal fa-trash"></i>
-              DELETED
-            </li>
-          </ul>
-        </div>
+        <div>
+          <div id="nav-items">
+            <ul>
+              <li onclick="handleNavigationClick(this)" class="active">
+                <i class="fal fa-globe-africa"></i>
+                ALL
+              </li>
+              <li onclick="handleNavigationClick(this)">
+                <i class="fal fa-hourglass-half"></i>
+                PENDING
+              </li>
+              <li onclick="handleNavigationClick(this)">
+                <i class="fal fa-badge-check"></i>
+                COMPLETED
+              </li>
+              <li onclick="handleNavigationClick(this)">
+                <i class="fal fa-trash"></i>
+                DELETED
+              </li>
+            </ul>
+          </div>
 
-        <form id="search-form">
-          <i class="fal fa-search"></i>
-          <input id="search-field" type="text" placeholder="Search Tasks..." />
-        </form>
-
-        <h3 id="section-title">ALL</h3>
-
-        <div id="tasks-list"></div>
-
-        <!-- Create List Dialog -->
-        <dialog id="dialog-box" class="closed">
-          <h2 class="title">Create List</h2>
-
-          <form id="create-list-dialog-form" onsubmit="createList(this, event)">
-            <input type="text" placeholder="List Title" id="list-title" />
-            <textarea placeholder="List Subtitle" id="list-subtitle"></textarea>
-            <button type="submit">Create List</button>
+          <form id="search-form">
+            <i class="fal fa-search"></i>
+            <input
+              id="search-field"
+              type="text"
+              placeholder="Search Tasks..."
+            />
           </form>
-        </dialog>
+
+          <h3 id="section-title">ALL</h3>
+
+          <div id="tasks-list"></div>
+
+          <!-- Create List Dialog -->
+          <dialog id="dialog-box" class="closed">
+            <h2 class="title">Create List</h2>
+
+            <form
+              id="create-list-dialog-form"
+              onsubmit="createList(this, event)"
+            >
+              <input type="text" placeholder="List Title" id="list-title" />
+              <textarea
+                placeholder="List Subtitle"
+                id="list-subtitle"
+              ></textarea>
+              <button type="submit">Create List</button>
+            </form>
+          </dialog>
+        </div>
       </main>
 
       <footer>
