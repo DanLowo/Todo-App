@@ -2,6 +2,7 @@
 
 .task-card {
   padding: 1rem;
+  cursor: pointer;
   border-radius: 0.3rem;
   width: calc(100% - 2rem);
   background-color: rgba(100, 148, 237, 0.527);

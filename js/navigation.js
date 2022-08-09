@@ -46,9 +46,14 @@ const clearDOMForTaskPage = ({ nav, main, footer }) => {
   }
   previousPage = {...DOMElements}
 
-  nav.remove()
-  footer.remove()
-  main.removeChild(main.firstElementChild)
+  if(isDeviceTypeMobile()) {
+    nav.remove()
+    footer.remove()
+    main.removeChild(main.firstElementChild)
+  } else {
+    footer.remove()
+    main.removeChild(main.firstElementChild)
+  }
 }
 
 const handleListNavigation = async (listId) => {
@@ -62,12 +67,15 @@ const handleListNavigation = async (listId) => {
 
   clearDOMForTaskPage({ nav, main, footer })
 
-  const taskNavigationBar = createTaskNavigationBar()
-  taskNavigationBar.firstElementChild.addEventListener("click", backToHome)
-  section.insertAdjacentElement("afterbegin", taskNavigationBar)
+  // only add new navigation bar for only mobile screen
+  if(isDeviceTypeMobile()) {
+    const taskNavigationBar = createTaskNavigationBar()
+    taskNavigationBar.firstElementChild.addEventListener("click", backToHome)
+    section.insertAdjacentElement("afterbegin", taskNavigationBar)
+  }
   
   const taskPage = createTaskPage(list)
-
+  
   main.insertAdjacentElement("afterbegin", taskPage)
 }
 
