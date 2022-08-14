@@ -26,7 +26,7 @@ const closeCreateListDialog = (dialogBox) => {
   isShowFabButtonIcon(false);
 }
 
-const setCreateListDialog = () => {
+const handleCreateProjectDialog = () => {
   const dialogBox = document.querySelector("#dialog-box");
 
   if(dialogBox.classList.contains("closed")) {

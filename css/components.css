@@ -1,6 +1,6 @@
-/* TASK CARD */
+/* project CARD */
 
-.task-card {
+.project-card {
   padding: 1rem;
   cursor: pointer;
   border-radius: 0.3rem;
@@ -8,7 +8,7 @@
   background-color: rgba(100, 148, 237, 0.527);
 }
 
-.task-card header {
+.project-card header {
   display: flex;
   align-items: center;
   margin-bottom: 0.6rem;
@@ -16,16 +16,16 @@
   justify-content: space-between;
 }
 
-.task-card header i {
-  color: var(--stared-task);
+.project-card header i {
+  color: var(--stared-project);
 }
 
-.task-card .task-subtitle {
+.project-card .project-subtitle {
   font-size: 0.9rem;
   color: var(--light-gray);
 }
 
-.task-card .task-created-date {
+.project-card .project-created-date {
   margin-top: 1rem;
   font-size: 0.8rem;
   color: var(--light-black);
@@ -51,7 +51,7 @@
   display: none !important;
 }
 
-#dialog-box #create-list-dialog-form {
+#dialog-box #create-project-dialog-form {
   width: 100%;
   gap: 1.5rem;
   display: flex;
@@ -71,30 +71,30 @@
 }
 
 
-/* Task page */
-#task-page {
+/* project page */
+#project-page {
   padding: .8rem .7rem;
   border-radius: 0.3rem;
 }
 
-#task-page #task-title {
+#project-page #project-title {
   margin-bottom: 1rem;
 }
 
-#task-page #task-subtitle {
+#project-page #project-subtitle {
   font-size: .88rem;
   margin-bottom: .8rem;
   color: var(--light-gray);
 }
 
-#task-page #task-date {
+#project-page #project-date {
   font-size: .75rem;
 }
 
 
 
 @media screen and (min-width: 620px) {
-  .task-card {
+  .project-card {
     width: 28% !important;
   }
   #dialog-box {

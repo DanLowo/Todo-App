@@ -48,24 +48,24 @@
 
           <h3 id="section-title">ALL</h3>
 
-          <div id="tasks-list"></div>
+          <div id="projects-list"></div>
 
-          <!-- Create List Dialog -->
+          <!-- Create Project Dialog -->
           <dialog id="dialog-box" class="closed">
             <h2 class="title">Create List</h2>
 
             <form
               autocomplete="off"
-              id="create-list-dialog-form"
+              id="create-project-dialog-form"
               onsubmit="createProject(this, event)"
             >
-              <input type="text" required placeholder="List Title" id="list-title" />
+              <input type="text" required placeholder="Project title" id="project-title" />
               <textarea
                 required
-                placeholder="List Subtitle"
-                id="list-subtitle"
+                placeholder="Project subtitle"
+                id="project-subtitle"
               ></textarea>
-              <button type="submit">Create List</button>
+              <button type="submit">Create Project</button>
             </form>
           </dialog>
         </div>
@@ -73,7 +73,7 @@
 
       <footer>
         <div id="fab">
-          <i class="fal fa-plus" onclick="setCreateListDialog()"></i>
+          <i class="fal fa-plus" onclick="handleCreateProjectDialog()"></i>
         </div>
       </footer>
     </section>

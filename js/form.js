@@ -3,27 +3,30 @@ const createProject = async (form, e) => {
   const title = e.target[0].value;
   const subTitle = e.target[1].value;
 
-  const listDetails = {
+  const projectDetails = {
     title,
     subTitle,
     stared: false,
     id: generateUniqueKey(),
-    status: tasksStatus.pending,
+    status: projectsStatus.pending,
     cardColor: generateRandomColor(),
     createdDate: new Date().toDateString(),
   };
 
-  const newList = createTaskCardEl(listDetails);
-  newList.addEventListener(
-    "click",
-    handleListNavigation.bind(this, listDetails.id)
-  );
-  addNewListToDOM(newList);
+  const projectCardElement = createProjectCardElement(projectDetails);
 
-  const allLists = [...getAllTasks()];
-  allLists.push(listDetails);
-  saveTasks(allLists);
+  projectCardElement.addEventListener(
+    "click",
+    handleProjectNavigation.bind(this, projectDetails.id)
+  );
+
+  projectObj.addToDOM(projectCardElement);
+
+  const allProjects = projectObj.all();
+  allProjects.push(projectDetails);
+
+  projectObj.save(allProjects);
 
   form.reset();
-  setCreateListDialog();
+  handleCreateProjectDialog();
 };

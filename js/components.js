@@ -1,14 +1,14 @@
-const createTaskCardEl = ({ title, subTitle, createdDate, cardColor }) => {
+const createProjectCardElement = ({ title, subTitle, createdDate, cardColor }) => {
   const card = document.createElement("div");
   const cardHeader = document.createElement("header");
   const cardTitle = document.createElement("h3");
   const cardSubTitle = document.createElement("p");
   const cardCreatedDate = document.createElement("p");
 
-  card.className = "task-card";
-  cardTitle.className = "task-title";
-  cardSubTitle.className = "task-subtitle";
-  cardCreatedDate.className = "task-created-date";
+  card.className = "project-card";
+  cardTitle.className = "project-title";
+  cardSubTitle.className = "project-subtitle";
+  cardCreatedDate.className = "project-created-date";
 
   cardTitle.textContent = title;
   cardSubTitle.textContent = subTitle;
@@ -24,7 +24,7 @@ const createTaskCardEl = ({ title, subTitle, createdDate, cardColor }) => {
   return card;
 };
 
-const createTaskNavigationBar = () => {
+const createProjectNavBar = () => {
   const navItems = `
   <i class="far fa-arrow-left"></i>
   <div>
@@ -32,25 +32,25 @@ const createTaskNavigationBar = () => {
     <i class="far fa-trash"></i>
   </div>`;
 
-  const taskNavigationBar = document.createElement("nav");
+  const projectNavBar = document.createElement("nav");
 
-  taskNavigationBar.id = "default-nav";
-  taskNavigationBar.className = "task-nav";
-  taskNavigationBar.insertAdjacentHTML("afterbegin", navItems);
+  projectNavBar.id = "default-nav";
+  projectNavBar.className = "project-nav";
+  projectNavBar.insertAdjacentHTML("afterbegin", navItems);
 
-  return taskNavigationBar;
+  return projectNavBar;
 };
 
-const createTaskPage = ({ title, subTitle, createdDate, cardColor }) => {
+const createProjectPage = ({ title, subTitle, createdDate, cardColor }) => {
   const pageDiv = document.createElement("div");
   const pageTitle = document.createElement("h1");
   const pageSubtitle = document.createElement("h5");
   const pageCreatedDate = document.createElement("p");
 
-  pageDiv.id = "task-page";
-  pageTitle.id = "task-title";
-  pageSubtitle.id = "task-subtitle";
-  pageCreatedDate.id = "task-date";
+  pageDiv.id = "project-page";
+  pageTitle.id = "project-title";
+  pageSubtitle.id = "project-subtitle";
+  pageCreatedDate.id = "project-date";
 
   pageTitle.textContent = title;
   pageSubtitle.textContent = subTitle;

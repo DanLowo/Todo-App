@@ -73,7 +73,7 @@
   outline: none;
 }
 
-#desktop-template #main #tasks-list {
+#desktop-template #main #projects-list {
   gap: 1.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -118,11 +118,11 @@
   font-size: 1.25rem;
 }
 
-#mobile-template .task-nav {
+#mobile-template .project-nav {
   justify-content: space-between;
 }
 
-#mobile-template .task-nav div {
+#mobile-template .project-nav div {
   gap: 1.4rem;
   display: flex;
   align-items: center;
@@ -189,7 +189,7 @@
   font-size: 1.3rem;
 }
 
-#mobile-template #tasks-list {
+#mobile-template #projects-list {
   gap: 1.5rem;
   display: flex;
   margin-top: 1rem;

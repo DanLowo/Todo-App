@@ -1,12 +1,10 @@
 const loadTemplate = async () => {
-  const isDeviceMobile = isDeviceTypeMobile();
-
   try {
     const desktopTemplate = await getHTMLFromURL(DESKTOP_TEMPLATE_URL);
     const mobileTemplate = await getHTMLFromURL(MOBILE_TEMPLATE_URL);
 
     // Add template to DOM based on device type
-    if (isDeviceMobile) {
+    if (isDeviceTypeMobile()) {
       const mobileTemplateSection = mobileTemplate.body.firstElementChild;
       document.body.insertAdjacentElement("afterbegin", mobileTemplateSection);
     } else {

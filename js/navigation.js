@@ -1,5 +1,5 @@
 const watcher = [];
-let previousPage = {}
+let previousPage = {};
 
 const changeSectionTitle = (title) => {
   const sectionTitleElement = document.querySelector("#section-title");
@@ -15,49 +15,49 @@ const removeActiveFromFirstElement = (siblingElement) => {
 };
 
 const backToHomeForDesktop = () => {
-  const { footer, main } = previousPage
+  const { footer, main } = previousPage;
 
-  const currentMain = document.querySelector("main")
-  const section = document.querySelector("section")
+  const currentMain = document.querySelector("main");
+  const section = document.querySelector("section");
 
-  currentMain.removeChild(currentMain.firstElementChild)
-  currentMain.insertAdjacentElement("afterbegin", main.firstElementChild)
+  currentMain.removeChild(currentMain.firstElementChild);
+  currentMain.insertAdjacentElement("afterbegin", main.firstElementChild);
 
-  section.insertAdjacentElement("beforeend", footer)
-}
+  section.insertAdjacentElement("beforeend", footer);
+};
 
 const backToHomeForMobile = () => {
-  const section = document.querySelector("section")
-  const main = document.querySelector("main")
-  const nav = document.querySelector("nav")
+  const section = document.querySelector("section");
+  const main = document.querySelector("main");
+  const nav = document.querySelector("nav");
 
-  nav.remove()
-  main.removeChild(main.firstElementChild)
+  nav.remove();
+  main.removeChild(main.firstElementChild);
 
-  section.insertAdjacentElement("afterbegin", previousPage?.nav)
-  section.insertAdjacentElement("beforeend", previousPage?.footer)
-  main.insertAdjacentElement("beforeend", previousPage?.main.firstElementChild)
+  section.insertAdjacentElement("afterbegin", previousPage?.nav);
+  section.insertAdjacentElement("beforeend", previousPage?.footer);
+  main.insertAdjacentElement("beforeend", previousPage?.main.firstElementChild);
 
-  displayTasksInDOM(getAllTasks())
-}
+  projectObj.addMultipleToDOM(projectObj.all());
+};
 
 const clearDOMForTaskPage = ({ nav, main, footer }) => {
   const DOMElements = {
     nav: nav.cloneNode(true),
     main: main.cloneNode(true),
-    footer: footer.cloneNode(true)
-  }
-  previousPage = {...DOMElements}
+    footer: footer.cloneNode(true),
+  };
+  previousPage = { ...DOMElements };
 
-  if(isDeviceTypeMobile()) {
-    nav.remove()
-    footer.remove()
-    main.removeChild(main.firstElementChild)
+  if (isDeviceTypeMobile()) {
+    nav.remove();
+    footer.remove();
+    main.removeChild(main.firstElementChild);
   } else {
-    footer.remove()
-    main.removeChild(main.firstElementChild)
+    footer.remove();
+    main.removeChild(main.firstElementChild);
   }
-}
+};
 
 const handleNavigationClick = (element) => {
   removeActiveFromFirstElement(element);
@@ -78,38 +78,40 @@ const handleNavigationClick = (element) => {
     watcher.push(element);
   }
 
-  const statusTasks = filterTaskByStatus(getAllTasks(), navTitle);
+  const statusProject = projectObj.filterByStatus(navTitle);
 
-  if(document.querySelector("#group-main")) {
+  if (document.querySelector("#group-main")) {
     changeSectionTitle(navTitle);
-    displayTasksInDOM(statusTasks);
+    projectObj.addMultipleToDOM(statusProject);
   } else {
-    backToHomeForDesktop()
+    backToHomeForDesktop();
     changeSectionTitle(navTitle);
-    displayTasksInDOM(statusTasks)
+    projectObj.addMultipleToDOM(statusProject);
   }
 };
 
-const handleListNavigation = async (listId) => {
-  const allTasks = [...getAllTasks()]
-  const list = allTasks.find(item => item.id === listId)
+const handleProjectNavigation = async (projectId) => {
+  const allProjects = projectObj.all();
+  const project = allProjects.find((item) => item.id === projectId);
 
-  const section = document.querySelector("section")
-  const nav = document.querySelector("nav")
-  const main = document.querySelector("main")
-  const footer = document.querySelector("footer")
+  const section = document.querySelector("section");
+  const nav = document.querySelector("nav");
+  const main = document.querySelector("main");
+  const footer = document.querySelector("footer");
 
-  clearDOMForTaskPage({ nav, main, footer })
+  clearDOMForTaskPage({ nav, main, footer });
 
   // only add new navigation bar for only mobile screen
-  if(isDeviceTypeMobile()) {
-    const taskNavigationBar = createTaskNavigationBar()
-    taskNavigationBar.firstElementChild.addEventListener("click", backToHomeForMobile)
-    section.insertAdjacentElement("afterbegin", taskNavigationBar)
+  if (isDeviceTypeMobile()) {
+    const taskNavigationBar = createProjectNavBar();
+    taskNavigationBar.firstElementChild.addEventListener(
+      "click",
+      backToHomeForMobile
+    );
+    section.insertAdjacentElement("afterbegin", taskNavigationBar);
   }
-  
-  const taskPage = createTaskPage(list)
-  
-  main.insertAdjacentElement("afterbegin", taskPage)
-}
 
+  const projectPage = createProjectPage(project);
+
+  main.insertAdjacentElement("afterbegin", projectPage);
+};
