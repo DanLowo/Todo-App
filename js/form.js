@@ -1,4 +1,4 @@
-const createList = async (form, e) => {
+const createProject = async (form, e) => {
   e.preventDefault();
   const title = e.target[0].value;
   const subTitle = e.target[1].value;

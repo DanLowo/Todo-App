@@ -56,10 +56,11 @@
 
             <form
               id="create-list-dialog-form"
-              onsubmit="createList(this, event)"
+              onsubmit="createProject(this, event)"
             >
-              <input type="text" placeholder="List Title" id="list-title" />
+              <input type="text" required placeholder="List Title" id="list-title" />
               <textarea
+                required
                 placeholder="List Subtitle"
                 id="list-subtitle"
               ></textarea>
