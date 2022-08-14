@@ -42,11 +42,14 @@
 }
 
 #desktop-template #main {
+  padding: 1.5rem 4rem;
+  width: calc(100vw - 3rem);
+}
+
+#desktop-template #main #group-main {
   gap: 2rem;
   display: flex;
-  padding: 1.5rem 4rem;
   flex-direction: column;
-  width: calc(100vw - 3rem);
 }
 
 #desktop-template #main #search-form {

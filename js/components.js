@@ -44,7 +44,7 @@ const createTaskNavigationBar = () => {
 const createTaskPage = ({ title, subTitle, createdDate, cardColor }) => {
   const pageDiv = document.createElement("div");
   const pageTitle = document.createElement("h1");
-  const pageSubtitle = document.createElement("h4");
+  const pageSubtitle = document.createElement("h5");
   const pageCreatedDate = document.createElement("p");
 
   pageDiv.id = "task-page";

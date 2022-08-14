@@ -14,29 +14,32 @@ const removeActiveFromFirstElement = (siblingElement) => {
   firstElement.classList.remove("active");
 };
 
-const handleNavigationClick = (element) => {
-  removeActiveFromFirstElement(element);
-  const navTitle = element.lastChild.textContent.trim();
+const backToHomeForDesktop = () => {
+  const { footer, main } = previousPage
 
-  /* if an item is already selected (i.e watcher.length > 0): remove "active" class from the previously
-     slected element, then add it to the clicked element. Esle add it to the clicked element.
-  */
-  if (watcher.length === 0) {
-    element.classList.add("active");
-    watcher.push(element);
-  } else {
-    const previousActiveElement = watcher[0];
-    previousActiveElement.classList.remove("active");
-    watcher.pop();
+  const currentMain = document.querySelector("main")
+  const section = document.querySelector("section")
 
-    element.classList.add("active");
-    watcher.push(element);
-  }
+  currentMain.removeChild(currentMain.firstElementChild)
+  currentMain.insertAdjacentElement("afterbegin", main.firstElementChild)
 
-  changeSectionTitle(navTitle);
-  const statusTasks = filterTaskByStatus(getAllTasks(), navTitle);
-  displayTasksInDOM(statusTasks);
-};
+  section.insertAdjacentElement("beforeend", footer)
+}
+
+const backToHomeForMobile = () => {
+  const section = document.querySelector("section")
+  const main = document.querySelector("main")
+  const nav = document.querySelector("nav")
+
+  nav.remove()
+  main.removeChild(main.firstElementChild)
+
+  section.insertAdjacentElement("afterbegin", previousPage?.nav)
+  section.insertAdjacentElement("beforeend", previousPage?.footer)
+  main.insertAdjacentElement("beforeend", previousPage?.main.firstElementChild)
+
+  displayTasksInDOM(getAllTasks())
+}
 
 const clearDOMForTaskPage = ({ nav, main, footer }) => {
   const DOMElements = {
@@ -56,6 +59,37 @@ const clearDOMForTaskPage = ({ nav, main, footer }) => {
   }
 }
 
+const handleNavigationClick = (element) => {
+  removeActiveFromFirstElement(element);
+  const navTitle = element.lastChild.textContent.trim();
+
+  /* if an item is already selected (i.e watcher.length > 0): remove "active" class from the previously
+     slected element, then add it to the clicked element. Esle add it to the clicked element.
+  */
+  if (watcher.length === 0) {
+    element.classList.add("active");
+    watcher.push(element);
+  } else {
+    const previousActiveElement = watcher[0];
+    previousActiveElement.classList.remove("active");
+    watcher.pop();
+
+    element.classList.add("active");
+    watcher.push(element);
+  }
+
+  const statusTasks = filterTaskByStatus(getAllTasks(), navTitle);
+
+  if(document.querySelector("#group-main")) {
+    changeSectionTitle(navTitle);
+    displayTasksInDOM(statusTasks);
+  } else {
+    backToHomeForDesktop()
+    changeSectionTitle(navTitle);
+    displayTasksInDOM(statusTasks)
+  }
+};
+
 const handleListNavigation = async (listId) => {
   const allTasks = [...getAllTasks()]
   const list = allTasks.find(item => item.id === listId)
@@ -70,7 +104,7 @@ const handleListNavigation = async (listId) => {
   // only add new navigation bar for only mobile screen
   if(isDeviceTypeMobile()) {
     const taskNavigationBar = createTaskNavigationBar()
-    taskNavigationBar.firstElementChild.addEventListener("click", backToHome)
+    taskNavigationBar.firstElementChild.addEventListener("click", backToHomeForMobile)
     section.insertAdjacentElement("afterbegin", taskNavigationBar)
   }
   
@@ -79,17 +113,3 @@ const handleListNavigation = async (listId) => {
   main.insertAdjacentElement("afterbegin", taskPage)
 }
 
-const backToHome = () => {
-  const section = document.querySelector("section")
-  const main = document.querySelector("main")
-  const nav = document.querySelector("nav")
-
-  nav.remove()
-  main.removeChild(main.firstElementChild)
-
-  section.insertAdjacentElement("afterbegin", previousPage?.nav)
-  section.insertAdjacentElement("beforeend", previousPage?.footer)
-  main.insertAdjacentElement("beforeend", previousPage?.main.firstElementChild)
-
-  displayTasksInDOM(getAllTasks())
-}
