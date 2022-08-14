@@ -52,7 +52,7 @@
           <dialog id="dialog-box" class="closed">
             <h2 class="title">Create List</h2>
   
-            <form id="create-list-dialog-form" onsubmit="createProject(this, event)">
+            <form id="create-list-dialog-form" autocomplete="off" onsubmit="createProject(this, event)">
               <input type="text" required placeholder="List Title" id="list-title" />
               <textarea placeholder="List Subtitle" required id="list-subtitle"></textarea>
               <button type="submit">Create List</button>
